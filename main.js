@@ -1,44 +1,46 @@
-let select1id = document.getElementById("select1id");
-let select2id = document.getElementById("select2id");
-let select3id = document.getElementById("select3id");
-let select4id = document.getElementById("select4id");
-let select5id = document.getElementById("select5id");
-let select6id = document.getElementById("select6id");
-let select7id = document.getElementById("select7id");
-let select8id = document.getElementById("select8id");
-let select9id = document.getElementById("select9id");
-let select10id = document.getElementById("select10id");
-let select11id = document.getElementById("select11id");
+"use strict"
 
-let select1name = document.getElementsByName("select1name");
-let select2name = document.getElementsByName("select2name");
-let select3name = document.getElementsByName("select3name");
-let select4name = document.getElementsByName("select4name");
-let select5name = document.getElementsByName("select5name");
-let select6name = document.getElementsByName("select6name");
-let select7name = document.getElementsByName("select7name");
-let select8name = document.getElementsByName("select8name");
-let select9name = document.getElementsByName("select9name");
-let select10name = document.getElementsByName("select10name");
-let select11name = document.getElementsByName("select11name");
-let select12name = document.getElementsByName("select12name");
-let select13name = document.getElementsByName("select13name");
-let select14name = document.getElementsByName("select14name");
-let select15name = document.getElementsByName("select15name");
+let selectId1 = document.getElementById("selectId1");
+let selectId2 = document.getElementById("selectId2");
+let selectId3 = document.getElementById("selectId3");
+let selectId4 = document.getElementById("selectId4");
+let selectId5 = document.getElementById("selectId5");
+let selectId6 = document.getElementById("selectId6");
+let selectId7 = document.getElementById("selectId7");
+let selectId8 = document.getElementById("selectId8");
+let selectId9 = document.getElementById("selectId9");
+let selectId10 = document.getElementById("selectId10");
+let selectId11 = document.getElementById("selectId11");
+
+let selectName1 = document.getElementsByName("selectName1");
+let selectName2 = document.getElementsByName("selectName2");
+let selectName3 = document.getElementsByName("selectName3");
+let selectName4 = document.getElementsByName("selectName4");
+let selectName5 = document.getElementsByName("selectName5");
+let selectName6 = document.getElementsByName("selectName6");
+let selectName7 = document.getElementsByName("selectName7");
+let selectName8 = document.getElementsByName("selectName8");
+let selectName9 = document.getElementsByName("selectName9");
+let selectName10 = document.getElementsByName("selectName10");
+let selectName11 = document.getElementsByName("selectName11");
+let selectName12 = document.getElementsByName("selectName12");
+let selectName13 = document.getElementsByName("selectName13");
+let selectName14 = document.getElementsByName("selectName14");
+let selectName15 = document.getElementsByName("selectName15");
 
 // איפוס כל הבחירות הבאות אחרי אחרי הבחירה ששונתה
 function reset(val) {
 	switch (val) {
-		case 2: { select2id.value = 0; select2id.style.display = "none"; }
-		case 3: { select3id.value = 0; select3id.style.display = "none"; }
-		case 4: { select4id.value = 0; select4id.style.display = "none"; }
-		case 5: { select5id.value = 0; select5id.style.display = "none"; }
-		case 6: { select6id.value = 0; select6id.style.display = "none"; }
-		case 7: { select7id.value = 0; select7id.style.display = "none"; }
-		case 8: { select8id.value = 0; select8id.style.display = "none"; }
-		case 9: { select9id.value = 0; select9id.style.display = "none"; }
-		case 10: { select10id.value = 0; select10id.style.display = "none"; }
-		case 11: { select11id.value = 0; select11id.style.display = "none"; }
+		case 2: { selectId2.value = 0; selectId2.style.display = "none"; }
+		case 3: { selectId3.value = 0; selectId3.style.display = "none"; }
+		case 4: { selectId4.value = 0; selectId4.style.display = "none"; }
+		case 5: { selectId5.value = 0; selectId5.style.display = "none"; }
+		case 6: { selectId6.value = 0; selectId6.style.display = "none"; }
+		case 7: { selectId7.value = 0; selectId7.style.display = "none"; }
+		case 8: { selectId8.value = 0; selectId8.style.display = "none"; }
+		case 9: { selectId9.value = 0; selectId9.style.display = "none"; }
+		case 10: { selectId10.value = 0; selectId10.style.display = "none"; }
+		case 11: { selectId11.value = 0; selectId11.style.display = "none"; }
 		case 12: { select12id.value = 0; select12id.style.display = "none"; }
 		case 13: { select13id.value = 0; select13id.style.display = "none"; }
 		case 14: { select14id.value = 0; select14id.style.display = "none"; }
@@ -49,68 +51,68 @@ function reset(val) {
 // התחלת בחירת כותרת
 
 // אירוע / תקרית
-select1id.style.display = "inline-block";
+selectId1.style.display = "inline-block";
 
-select1id.onchange = function () {
+selectId1.onchange = function () {
 	reset(2);
-	let select = select1name[0];
+	let select = selectName1[0];
 	let intput = select.options[select.selectedIndex].text;
 	let output = document.getElementById("articleHead");
 	if (intput != "בחר/י") {
-		select2id.style.display = "inline-block";
+		selectId2.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 };
 
-select2id.onchange = function () {
+selectId2.onchange = function () {
 	reset(3);
-	let select = select2name[0];
+	let select = selectName2[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput == "ידוי") {
-		select3id.style.display = "inline-block";
+		selectId3.style.display = "inline-block";
 	}
 	if (intput == "השלכת") {
-		select4id.style.display = "inline-block";
+		selectId4.style.display = "inline-block";
 	}
 	if (intput == "ירי") {
-		select5id.style.display = "inline-block";
+		selectId5.style.display = "inline-block";
 	}
 	if (intput == "דקירה") {
-		select6id.style.display = "inline-block";
+		selectId6.style.display = "inline-block";
 	}
 
 	articleHeadInnerHTML();
 }
 
 // אבן / אבנים
-select3id.onchange = function () {
+selectId3.onchange = function () {
 	reset(6);
-	let select = select3name[0];
+	let select = selectName3[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
-		select6id.style.display = "inline-block";
+		selectId6.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
 
 // בקבוק / בקבוקי תבערה
-select4id.onchange = function () {
+selectId4.onchange = function () {
 	reset(6);
-	let select = select4name[0];
+	let select = selectName4[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
-		select6id.style.display = "inline-block";
+		selectId6.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
 
 // זולג / תועה
-select5id.onchange = function () {
+selectId5.onchange = function () {
 	reset(6);
-	let select = select5name[0];
+	let select = selectName5[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
-		select6id.style.display = "inline-block";
+		selectId6.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
@@ -119,77 +121,77 @@ select5id.onchange = function () {
 // התחלת בחירת מבצע
 
 // מבצע
-select6id.onchange = function () {
+selectId6.onchange = function () {
 	reset(7);
-	let select = select6name[0];
+	let select = selectName6[0];
 	let intput = select.options[select.selectedIndex].text;
 
 	if (intput == "צעיר" || intput == "פלסטיני" || intput == "תושב השטחים") {
-		select7id.style.display = "inline-block";
+		selectId7.style.display = "inline-block";
 	}
 	if (intput == "צעירה" || intput == "פלסטינית" || intput == "תושבת השטחים") {
-		select8id.style.display = "inline-block";
+		selectId8.style.display = "inline-block";
 	}
 	if (intput == "צעירים" || intput == "פלסטינים" || intput == "תושבי השטחים") {
-		select9id.style.display = "inline-block";
+		selectId9.style.display = "inline-block";
 	}
 	if (intput == "צעירות" || intput == "פלסטיניות" || intput == "תושבות השטחים") {
-		select10id.style.display = "inline-block";
+		selectId10.style.display = "inline-block";
 	}
 	if (intput == "אף אחד/ת" || intput == "אלמוני" || intput == "אלמונית" || intput == "אלמונים" || intput == "אלמוניות") {
-		select11id.style.display = "inline-block";
+		selectId11.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
 
 // רקע מבצע
-select7id.onchange = function () {
+selectId7.onchange = function () {
 	reset(11);
-	let select = select7name[0];
+	let select = selectName7[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
-		select11id.style.display = "inline-block";
+		selectId11.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
 
 // רקע מבצעת
-select8id.onchange = function () {
+selectId8.onchange = function () {
 	reset(11);
-	let select = select8name[0];
+	let select = selectName8[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
-		select11id.style.display = "inline-block";
+		selectId11.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
 
 // רקע מבצעים
-select9id.onchange = function () {
+selectId9.onchange = function () {
 	reset(11);
-	let select = select9name[0];
+	let select = selectName9[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
-		select11id.style.display = "inline-block";
+		selectId11.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
 
 // רקע מבצעות
-select10id.onchange = function () {
+selectId10.onchange = function () {
 	reset(11);
-	let select = select10name[0];
+	let select = selectName10[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
-		select11id.style.display = "inline-block";
+		selectId11.style.display = "inline-block";
 	}
 	articleHeadInnerHTML();
 }
 
 // פצוע/ה פצועים/עות
-select11id.onchange = function () {
+selectId11.onchange = function () {
 	reset(12);
-	let select = select11name[0];
+	let select = selectName11[0];
 	let intput = select.options[select.selectedIndex].text;
 
 	if (intput == "פצוע") {
@@ -209,7 +211,7 @@ select11id.onchange = function () {
 
 select12id.onchange = function () {
 	reset(15);
-	let select = select12name[0];
+	let select = selectName12[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		select15id.style.display = "inline-block";
@@ -219,7 +221,7 @@ select12id.onchange = function () {
 
 select13id.onchange = function () {
 	reset(15);
-	let select = select13name[0];
+	let select = selectName13[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		select15id.style.display = "inline-block";
@@ -229,7 +231,7 @@ select13id.onchange = function () {
 
 select14id.onchange = function () {
 	reset(15);
-	let select = select14name[0];
+	let select = selectName14[0];
 	let intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		select15id.style.display = "inline-block";
@@ -255,13 +257,13 @@ function articleHeadInnerHTML() {
 	outputP2.innerHTML = "";
 	outputP3.innerHTML = "";
 
-	select = select1name[0];
+	select = selectName1[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputH1.innerHTML = intput;
 	}
 
-	select = select2name[0];
+	select = selectName2[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputH1.innerHTML += " " + intput;
@@ -271,7 +273,7 @@ function articleHeadInnerHTML() {
 			outputP1.innerHTML = "ירי בוצע";
 	}
 
-	select = select3name[0];
+	select = selectName3[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputH1.innerHTML += " " + intput;
@@ -281,7 +283,7 @@ function articleHeadInnerHTML() {
 			outputP1.innerHTML = "אבנים יודו";
 	}
 
-	select = select4name[0];
+	select = selectName4[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputH1.innerHTML += " " + intput;
@@ -291,13 +293,13 @@ function articleHeadInnerHTML() {
 			outputP1.innerHTML = "בקבוקי תבערה הושלכו";
 	}
 
-	select = select5name[0];
+	select = selectName5[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputH1.innerHTML += " " + intput;
 	}
 
-	select = select6name[0];
+	select = selectName6[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		if (intput == "אף אחד/ת") {
@@ -311,31 +313,31 @@ function articleHeadInnerHTML() {
 		}
 	}
 
-	select = select7name[0];
+	select = selectName7[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP1.innerHTML += " " + intput + ".";
 	}
 
-	select = select8name[0];
+	select = selectName8[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP1.innerHTML += " " + intput + ".";
 	}
 
-	select = select9name[0];
+	select = selectName9[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP1.innerHTML += " " + intput + ".";
 	}
 
-	select = select10name[0];
+	select = selectName10[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP1.innerHTML += " " + intput + ".";
 	}
 
-	select = select11name[0];
+	select = selectName11[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP2.innerHTML += " " + intput;
@@ -344,25 +346,25 @@ function articleHeadInnerHTML() {
 		}
 	}
 
-	select = select12name[0];
+	select = selectName12[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP2.innerHTML += " " + intput + ".";
 	}
 
-	select = select13name[0];
+	select = selectName13[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP2.innerHTML += " " + intput + ".";
 	}
 
-	select = select14name[0];
+	select = selectName14[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP2.innerHTML += " " + intput + ".";
 	}
 
-	select = select15name[0];
+	select = selectName15[0];
 	intput = select.options[select.selectedIndex].text;
 	if (intput != "בחר/י") {
 		outputP3.innerHTML += " " + intput + ".";
