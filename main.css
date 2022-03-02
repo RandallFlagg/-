@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+@import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+body {
+	direction: rtl;
+	padding-top: 20px;
+}
+
+h1, label, p, select {
+	font-family: 'Open Sans Hebrew', 'Open Sans Hebrew Condensed', 'Varela Round';
+}
+
+#mainHead {
+	text-align: center;
+}
+
+select {
+	display: inline-block;
+	font-size: medium;
+	display: none;
+}
+
+.article_container {
+	border-radius: 5px;
+	padding: 20px;
+	background-color: antiquewhite;
+	margin: auto;
+	width: 80%;
+}
