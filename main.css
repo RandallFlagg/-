@@ -14,9 +14,12 @@ h1, label, p, select {
 	text-align: center;
 }
 
-select {
-	display: inline-block;
+.show_select{
 	font-size: medium;
+	display: inline-block;
+}
+
+.hide_select {
 	display: none;
 }
 
