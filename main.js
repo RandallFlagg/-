@@ -88,28 +88,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 	// מבצע
 	selectId6.onchange = function () {
-		// reset(7);
-		// const select = selectName6[0];
+		reset(7);
 		const intput = selectId6.options[selectId6.selectedIndex].text;
 
 		if (intput == "צעיר" || intput == "פלסטיני" || intput == "תושב השטחים") {
 			show(selectId7);
-			// selectId7.style.display = "inline-block";
 		}
 		if (intput == "צעירה" || intput == "פלסטינית" || intput == "תושבת השטחים") {
-			// selectId8.style.display = "inline-block";
 			show(selectId8);
 		}
 		if (intput == "צעירים" || intput == "פלסטינים" || intput == "תושבי השטחים") {
-			// selectId9.style.display = "inline-block";
 			show(selectId9);
 		}
 		if (intput == "צעירות" || intput == "פלסטיניות" || intput == "תושבות השטחים") {
-			// selectId10.style.display = "inline-block";
 			show(selectId10);
 		}
 		if (intput == "אף אחד/ת" || intput == "אלמוני" || intput == "אלמונית" || intput == "אלמונים" || intput == "אלמוניות") {
-			// selectId11.style.display = "inline-block";
 			show(selectId11);
 		}
 		articleHeadInnerHTML();
@@ -276,47 +270,30 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		}
 
 		const option6 = selectId6.options[selectId6.selectedIndex].text;
-		if (option6 === "אף אחד/ת") {
-			outputP1.innerHTML += ".";
-		}
-		else {
-			outputP1.innerHTML += " ע''י " + option6;
-		}
-		if (option6 === "אלמוני" || option6 === "אלמונית" || option6 === "אלמונים" || option6 === "אלמוניות") {
-			outputP1.innerHTML += ".";
-		}
-
-		if (selectId7.selectedIndex > 0) {
-			intput = selectId7.options[selectId7.selectedIndex].text;
-			outputP1.innerHTML += " " + intput + ".";
+		if (option6 !== "אף אחד/ת") {
+			outputP1.innerHTML += ` ע"י ${option6}`;
+			if (option6 !== "אלמוני" || option6 !== "אלמונית" || option6 !== "אלמונים" || option6 !== "אלמוניות") {
+				[7, 8, 9, 10].forEach(val => {
+					const selectedItem = window["selectId" + val];
+					if (selectedItem.selectedIndex > 0) {
+						outputP1.innerHTML += " " + selectedItem.options[selectedItem.selectedIndex].text;
+						return;
+					}
+				});
+			}
 		}
 
-		if (selectId8.selectedIndex > 0) {
-			intput = selectId8.options[selectId8.selectedIndex].text;
-			outputP1.innerHTML += " " + intput + ".";
-		}
+		outputP1.innerHTML += ".";
 
-
-		if (selectId9.selectedIndex > 0) {
-			intput = selectId9.options[selectId9.selectedIndex].text;
-			outputP1.innerHTML += " " + intput + ".";
-		}
-
-		if (selectId10.selectedIndex > 0) {
-			intput = selectId10.options[selectId10.selectedIndex].text;
-			outputP1.innerHTML += " " + intput + ".";
-		}
-
-		if (selectId10.selectedIndex < 1) {
+		if (selectId11.selectedIndex < 1) {
 			return;
 		}
 
-		intput = selectId11.options[selectId11.selectedIndex].text;
-		if (intput != "בחר/י") {
-			outputP2.innerHTML += " " + intput;
-			if (intput == "אין פצועים") {
-				outputP2.innerHTML += ".";
-			}
+		debugger;
+		const intput = selectId11.options[selectId11.selectedIndex].text;
+		outputP2.innerHTML += " " + intput;
+		if (intput == "אין פצועים") {
+			outputP2.innerHTML += ".";
 		}
 
 		intput = selectId12.options[selectId12.selectedIndex].text;
