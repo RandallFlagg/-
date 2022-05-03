@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="he-il">
-	<head>
-		<title>מחולל חדשות</title>
-		<meta charset='utf-8' />
-		<meta http-equiv='X-UA-Compatible' content='IE=edge' />
-		<meta name='viewport' content='width=device-width, initial-scale=1' />
-		<link rel='stylesheet' type='text/css' media='screen' href='main.css' />
-		<script src='main.js' async></script>
-	</head>
-	<body>
-		<article class="article_container">
 
-			<h1 id="mainHead">מחולל הכחשת פיגועים</h1>
+<head>
+	<title>מחולל חדשות</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<script src="main.js"></script>
+</head>
 
-			<form action="/action_page.php">
+<body>
+	<article class="article_container">
 
+		<h1 id="mainHead">מחולל הכחשת פיגועים</h1>
+
+		<form action="/action_page.php">
+
+			<div class="line">
 				<label for="selectId1">כותרת:</label>
 
 				<select class="show_select" name="selectName1" id="selectId1">
@@ -23,7 +26,6 @@
 					<option value="2">ניסיון</option>
 					<option value="2">תקרית</option>
 				</select>
-				<!-- <input type="submit" value="Submit"> -->
 
 				<select class="hide_select" name="selectName2" id="selectId2">
 					<option selected="selected" disabled="disabled">בחר/י</option>
@@ -50,10 +52,10 @@
 					<option value="1">זולג</option>
 					<option value="2">תועה</option>
 				</select>
+			</div>
 
-				<br>
-				<br>
-				<label for="selectId6">מבצע:</label>
+			<div class="line">
+				<label for="selectId6" for="selectId6">מבצע:</label>
 
 				<select class="hide_select" name="selectName6" id="selectId6">
 					<option selected="selected" disabled="disabled">בחר/י</option>
@@ -104,10 +106,10 @@
 					<option value="1">בעלות רקע נפשי</option>
 					<option value="2">שהסתכסכו עם קרובי משפחותיהן</option>
 				</select>
+			</div>
 
-				<br>
-				<br>
-				<label for="selectId11">פצועים:</label>
+			<div class="line">
+				<label for="selectId11" for="selectId11">פצועים:</label>
 
 				<select class="hide_select" name="selectName11" id="selectId11">
 					<option selected="selected" disabled="disabled">בחר/י</option>
@@ -135,10 +137,10 @@
 					<option value="1">קל מאוד</option>
 					<option value="2">טופלו במקום ושוחררו מיד</option>
 				</select>
+			</div>
 
-				<br>
-				<br>
-				<label for="selectId15">הרקע:</label>
+			<div class="line">
+				<label for="selectId15" for="selectId15">הרקע:</label>
 
 				<select class="hide_select" name="selectName15" id="selectId15">
 					<option selected="selected" disabled="disabled">בחר/י</option>
@@ -147,14 +149,11 @@
 					<option value="3">הרקע רומנטי</option>
 					<option value="4">הרקע שוד שהסתבך</option>
 				</select>
+			</div>
+		</form>
 
-			</form>
+		<div id="output"></div>
+	</article>
+</body>
 
-			<div id="output"></div>
-			<!-- <h1 id="title"></h1>
-			<p id="p1"></p>
-			<p id="p2"></p>
-			<p id="p3"></p> -->
-		</article>
-	</body>
 </html>

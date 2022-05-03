@@ -10,6 +10,10 @@ h1, label, p, select {
 	font-family: 'Open Sans Hebrew', 'Open Sans Hebrew Condensed', 'Varela Round';
 }
 
+.line{
+	padding-bottom: 1rem;
+}
+
 #mainHead {
 	text-align: center;
 }
