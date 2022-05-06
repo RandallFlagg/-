@@ -1,22 +1,11 @@
+/* eslint-disable no-undef */
 "use strict";
 
 window.addEventListener("DOMContentLoaded", (event) => {
-
-	const selectId1 = document.getElementById("selectId1");
-	const selectId2 = document.getElementById("selectId2");
-	const selectId3 = document.getElementById("selectId3");
-	const selectId4 = document.getElementById("selectId4");
-	const selectId5 = document.getElementById("selectId5");
-	const selectId6 = document.getElementById("selectId6");
-	const selectId7 = document.getElementById("selectId7");
-	const selectId8 = document.getElementById("selectId8");
-	const selectId9 = document.getElementById("selectId9");
-	const selectId10 = document.getElementById("selectId10");
-	const selectId11 = document.getElementById("selectId11");
-	const selectId12 = document.getElementById("selectId12");
-	const selectId13 = document.getElementById("selectId13");
-	const selectId14 = document.getElementById("selectId14");
-	const selectId15 = document.getElementById("selectId15");
+	const selectBoxes = document.querySelectorAll(`[id^="selectId"]`);
+	selectBoxes.forEach(item => {
+		this[item.id] = item;
+	});
 
 	// איפוס כל הבחירות הבאות אחרי אחרי הבחירה ששונתה
 	function reset(val) {
@@ -36,14 +25,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		}
 	};
 
-	selectId1.onchange = function () {
-		show(selectId2, true);
-		articleOutput();
-	};
+	selectId1.addEventListener("change", function () {
+		show(selectId2);
+	});
 
-	selectId2.onchange = function () {
+	selectId2.addEventListener("change", function () {
 		reset(3);
-		const option2 = selectId2.options[selectId2.selectedIndex].text; //TOOD: change var name
+		const option2 = selectId2.options[selectId2.selectedIndex].text;
 
 		if (option2 == "ידוי") {
 			show(selectId3);
@@ -54,33 +42,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		} else if (option2 == "דקירה") {
 			show(selectId6);
 		}
-
-		articleOutput();
-	};
+	});
 
 	// אבן / אבנים
-	selectId3.onchange = function () {
-		show(selectId6, true);
-		articleOutput();
-	};
-
 	// בקבוק / בקבוקי תבערה
-	selectId4.onchange = function () {
-		// reset(6);
-		show(selectId6);
-		articleOutput();
-	};
-
-	// זולג / תועה
-	selectId5.onchange = function () {
-		show(selectId6);
-		articleOutput();
-	};
+	// // זולג / תועה
+	[selectId3, selectId4, selectId5].forEach(item => {
+		item.addEventListener("change", () => {
+			show(selectId6);
+		});
+	});
 	// סוף בחירת כותרת
 
 	// התחלת בחירת מבצע
 	// מבצע
-	selectId6.onchange = function () {
+	selectId6.addEventListener("change", function () {
 		reset(7);
 		const intput = selectId6.options[selectId6.selectedIndex].text;
 
@@ -99,39 +75,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		if (intput == "אף אחד/ת" || intput == "אלמוני" || intput == "אלמונית" || intput == "אלמונים" || intput == "אלמוניות") {
 			show(selectId11);
 		}
-		articleOutput();
-	};
+	});
 
 	// רקע מבצע
-	selectId7.onchange = function () {
-		reset(11);
-		show(selectId11);
-		articleOutput();
-	};
-
 	// רקע מבצעת
-	selectId8.onchange = function () {
-		reset(11);
-		show(selectId11);
-		articleOutput();
-	};
-
 	// רקע מבצעים
-	selectId9.onchange = function () {
-		reset(11);
-		show(selectId11);
-		articleOutput();
-	};
-
 	// רקע מבצעות
-	selectId10.onchange = function () {
-		reset(11);
-		show(selectId11);
-		articleOutput();
-	};
+	[selectId7, selectId8, selectId9, selectId10].forEach(item => {
+		item.addEventListener("change", () => {
+			reset(11);
+			show(selectId11);
+		});
+	});
 
 	// פצוע/ה פצועים/עות
-	selectId11.onchange = function () {
+	selectId11.addEventListener("change", function () {
 		reset(12);
 		const intput = selectId11.options[selectId11.selectedIndex].text;
 
@@ -147,39 +105,54 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		if (intput == "אין פצועים") {
 			show(selectId15);
 		}
-		articleOutput();
-	};
+	});
 
-	selectId12.onchange = function () {
-		reset(15);
-		const intput = selectId12.options[selectId12.selectedIndex].text;
-		if (intput != "בחר/י") {
-			selectId15.style.display = "inline-block";
+	[selectId12, selectId13, selectId14].forEach(item => {
+		item.addEventListener("change", () => {
+			reset(15);
+			show(selectId15);
+		});
+	});
+
+	selectId15.addEventListener("change", function () {
+	});
+
+	// observeDOM(document.getElementById("output"), function (e) {
+	// 	//articleOutput();
+	// 	articleTemplateOutput();
+	// });
+
+	selectBoxes.forEach(item => {
+		item.addEventListener("change", function (e) {
+			articleOutput();
+			articleTemplateOutput();
+		});
+	});
+
+	function articleTemplateOutput() {
+		const canvas = document.createElement("canvas");
+		const ctx = canvas.getContext("2d");
+		const width = 500;
+		const height = 500;
+		canvas.width = canvas.height = width;
+
+		const tempImg = document.createElement("img");
+		tempImg.addEventListener("load", onTempImageLoad);
+		// <div xmlns="http://www.w3.org/1999/xhtml"><style>em{color:red;}</style><em>I</em> lick <span>cheese</span></div>
+		// tempImg.src = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>em{color:red;}</style><em>I</em> lick <span>cheese</span></div></foreignObject></svg>`);
+		const output = document.getElementById("output");
+		tempImg.src = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><foreignObject width="100%" height="100%">${output.outerHTML}</foreignObject></svg>`);
+
+		const { body } = document;
+		const targetImg = document.getElementById("canvasOutput") || document.createElement("img");
+		targetImg.id = "canvasOutput";
+		body.appendChild(targetImg);
+
+		function onTempImageLoad(e) {
+			ctx.drawImage(e.target, 0, 0);
+			targetImg.src = canvas.toDataURL();
 		}
-		articleOutput();
-	};
-
-	selectId13.onchange = function () {
-		reset(15);
-		const intput = selectId13.options[selectId13.selectedIndex].text;
-		if (intput != "בחר/י") {
-			selectId15.style.display = "inline-block";
-		}
-		articleOutput();
-	};
-
-	selectId14.onchange = function () {
-		reset(15);
-		const intput = selectId14.options[selectId14.selectedIndex].text;
-		if (intput != "בחר/י") {
-			selectId15.style.display = "inline-block";
-		}
-		articleOutput();
-	};
-
-	selectId15.onchange = function () {
-		articleOutput();
-	};
+	}
 
 	// כתיבת הידיעה ע"פ הבחירות
 	function articleOutput() {
